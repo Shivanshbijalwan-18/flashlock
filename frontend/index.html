@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FlashLock Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1>FlashLock</h1>
+  <p id="conn" class="pill pill-wait" role="status">Connecting…</p>
+</header>
+<p id="mock-banner" class="mock" hidden>DEMO MOCK DATA — NOT LIVE DATABASE. Nothing here changes PostgreSQL.</p>
+
+<main>
+  <section aria-labelledby="inv-h">
+    <div class="head">
+      <h2 id="inv-h">Inventory</h2>
+      <label class="inline">User ID <input id="user-id" type="number" min="1" step="1" value="101"></label>
+      <button id="refresh" type="button" class="ghost">Refresh</button>
+    </div>
+    <p id="result" class="msg" role="status" aria-live="polite" hidden></p>
+    <p id="inv-state" class="state">Loading products…</p>
+    <div class="scroll">
+      <table id="inv-table" hidden>
+        <thead><tr><th>Product</th><th class="num">Price</th><th class="num">Stock</th><th>Quantity</th><th></th></tr></thead>
+        <tbody id="inv-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="ord-h">
+    <div class="head"><h2 id="ord-h">Orders</h2></div>
+    <p id="ord-state" class="state">Loading orders…</p>
+    <div class="scroll">
+      <table id="ord-table" hidden>
+        <thead><tr><th>Order</th><th>Product</th><th>User</th><th class="num">Qty</th><th>Status</th><th>Time</th></tr></thead>
+        <tbody id="ord-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section aria-labelledby="sim-h" class="sim">
+    <div class="head">
+      <h2 id="sim-h">OS Simulation Metrics</h2>
+      <label class="inline">Requests <input id="sim-count" type="number" min="1" max="10000" step="1" value="100"></label>
+      <button id="sim-run" type="button">Run simulation</button>
+    </div>
+    <p class="note">Produced by the C simulation engine. These are simulated outcomes, not real purchases, and not PostgreSQL or database timings.</p>
+    <p id="sim-state" class="state">Not run.</p>
+    <div id="sim-metrics" class="metrics"></div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
