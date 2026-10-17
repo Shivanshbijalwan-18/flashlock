@@ -1,0 +1,19 @@
+﻿# Java / Maven build output
+backend/target/
+*.class
+
+# C build output and executables
+os-engine/build/
+os-engine/flashlock-engine
+os-engine/deadlock-demo
+
+# IDE settings
+.vscode/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
